@@ -1,0 +1,52 @@
+img {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+}
+
+#title {
+  width: 626px; 
+  border: 0px; 
+  margin-left: auto; 
+  margin-right: auto; 
+  border-collapse: collapse;
+}
+.category {
+  width: 700px;
+  margin-left: auto; 
+  margin-right: auto;
+  margin-bottom: 7px;
+}
+#main-table {
+  margin-left: auto; 
+  margin-right: auto; 
+  border-collapse: collapse;
+}
+.text-links {
+  width: 255px;
+  border-collapse: collapse;
+  text-align: center;
+  vertical-align: middle;
+}
+.text-links td {
+  padding-bottom: 14px;
+}
+.picture-grid {
+  margin-left: auto;
+  margin-right: auto;
+  height: 67px;
+  border-collapse: collapse;
+}
+.picture-grid td {
+  border: 5px solid white;
+  padding: 0px;
+}
+
+
+/* Actual photo pages */
+#picture-holder {
+  margin-left: auto; 
+  margin-right: auto; 
+  margin-bottom: 20px; 
+  /*width: 700px; */
+}
