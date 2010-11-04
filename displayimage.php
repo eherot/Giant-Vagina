@@ -1,18 +1,72 @@
-<?php      
+<?php 
 
-$image_filename = "fullsize/" . $image_name . ".jpg";
+$image_id = $_GET["id"];
+
+try
+{
+	$db = new SQLite3('GV.db');
+}
+catch(Exception $e)
+{
+	die($error);
+}
+
+$q_cur = "SELECT " .
+		"name, " . 
+		"title, " . 
+		"text, " . 
+		"pos " .
+	"FROM " . 
+		"image_metadata " . 
+	"WHERE id = {$image_id}";
+
+if($result = $db->query($q_cur))
+{
+	while($row = $result->fetchArray())
+	{
+		$name = $row['name'];
+		$title = $row['title'];
+		$text = $row['text'];
+		$cur_pos = $row['pos'];
+	}
+}
+else
+{
+	print "ERROR!";
+	die($error);
+}
+
+$q_next = "SELECT id " . 
+	"FROM image_metadata " . 
+	"WHERE pos > {$cur_pos} " .
+	"ORDER BY pos ASC " .
+	"LIMIT 1";
+
+$next_id = $db->querySingle($q_next);
+
+$q_prev = "SELECT id " . 
+	"FROM image_metadata " . 
+	"WHERE pos < {$cur_pos} " .
+	"ORDER BY pos DESC " .
+	"LIMIT 1";
+
+$prev_id = $db->querySingle($q_prev);
+
+$image_filename = "fullsize/" . $name . ".jpg";
 $image_size_array = GetImageSize($image_filename);
 
 $image_height = $image_size_array[1];
 $image_width = $image_size_array[0];
 
-if (!isset($image_text)) {
-
-  $image_text_filename = "text/" . $image_name . ".gif";
+		
+if ($text == "")
+{
+	
+  $image_text_filename = "text/" . $name . ".gif";
 
 } else {
 
-  $image_text_filename = "text/" . $image_text . ".gif";
+  $image_text_filename = "text/" . $text . ".gif";
 
 }
 
@@ -31,7 +85,7 @@ $image_text_width = $image_text_size_array[0];
   
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
     
-    <title><?php echo "the art of sydney hardin: " . $image_title; ?></title>
+    <title>the art of Sydney Hardin: <?php echo $title; ?></title>
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     
     <style type="text/css">
@@ -43,50 +97,81 @@ $image_text_width = $image_text_size_array[0];
   <body style="text-align: center;">
   
     <table style="margin-left: auto; margin-right: auto; margin-top: 40px;">
+    
       <tr>
+      
         <td style="border: 3px ridge; padding: 0px;">
 
-<?php
-
-      echo "<img src=\"" . $image_filename . "\" alt=\"" . $image_title . "\" style=\"width: " . $image_width . "px; height: " . $image_height . "px;\" /></td>"
-?>
+	      <img 
+	      	src="<?php echo $image_filename; ?>" 
+	      	alt="<?php echo $title; ?>" 
+	      	style="
+	      		width: <?php echo $image_width; ?>px; 
+	      		height: <?php echo $image_height; ?>px" 
+	      />
+	      
+      </td>
 
   </tr>
+  
 </table>
+
 <table id="picture-holder">
+
   <tr>
+  
     <td style="width: 200px; text-align: left;">
     
     <?php
-    echo "<a href=\"" . $previous_image . "\">"
+    
+    if($prev_id != "")
+    {
+    	
+  		echo "<a href='?id=" . $prev_id . "'>";
+  		echo "<img\n" .
+	  			"src='text/back.gif'\n" .
+	  			"alt='Back'\n" .
+	  			"style='width: 67px; height: 30px;'\n" .
+  			"/></a>\n";
+    
+    } else {
+    	
+    	echo "&nbsp;";
+    	
+    }
+    
     ?>
     
-    <img src="text/back.gif" alt="Back" style="width: 67px; height: 30px;" /></a></td>
+    </td>
+    
     <td style="width: 300px;">
     
-      <?php
-        echo "<img src=\"". $image_text_filename . "\" alt=\"" . $image_title . "\" style=\"width: ". $image_text_width . "px; height: ". $image_text_height . "px;\" />"
-       ?>
+		<img 
+			src="<?php echo $image_text_filename; ?>" 
+			alt="<?php echo $title; ?>" 
+			style="
+				width: <?php echo $image_text_width; ?>px; 
+				height: <?php echo $image_text_height; ?>px;" 
+		/>
        
-      </td>
+   	</td>
+
+	<td style="width: 200px; text-align: right;">
 
       <?php
-        if ( $next_image != "" ) {
+        if ( $next_id != "" ) {
       ?>
 
-        <td style="width: 200px; text-align: right;">
-
-          <?php
-            echo "<a href=\"" . $next_image . "\">"
-          ?>
+          <a href="?id=<?php echo $next_id; ?>">
         
             <img src="text/next.gif" alt="Next" style="width: 73px; height: 30px;" />
           </a>
-        </td>
 
       <?php
         }
       ?>
+        
+	  </td>
 
       </tr>
     </table>
