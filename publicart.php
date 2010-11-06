@@ -1,7 +1,7 @@
 <?php 
 
-  $tn_width = "69px";
-  $tn_height = "69px";
+$cols = 5;
+$pagenum = 2;
 
 ?>
 
@@ -37,22 +37,17 @@
       <tr>
         <td style="text-align: center;" colspan="1">
           <img src="text/name.gif" class="text" style="width: 626px; height: 92px;" alt="Sydney Phillips Hardin" />
-       </td>
+       	</td>
       </tr>
-	<tr>
+	  <tr>
         <td>
-          <table class="picture-grid">
-            <tr>
-              <td><a href="switchbox1.php"><img style="width: <?php echo $tn_width ?>; height: <?php echo $tn_height ?>;" src="thumbnails/switchbox1.jpg" alt="switchbox 1" /></a></td>
-              <td><a href="switchbox2.php"><img style="width: <?php echo $tn_width ?>; height: <?php echo $tn_height ?>;" src="thumbnails/switchbox2.jpg" alt="switchbox 2" /></a></td>
-              <td><a href="switchbox3.php"><img style="width: <?php echo $tn_width ?>; height: <?php echo $tn_height ?>;" src="thumbnails/switchbox3.jpg" alt="switchbox 3" /></a></td>
-              <td><a href="switchbox4.php"><img style="width: <?php echo $tn_width ?>; height: <?php echo $tn_height ?>;" src="thumbnails/switchbox4.jpg" alt="switchbox 4" /></a></td>
-              <td><a href="switchbox5.php"><img style="width: <?php echo $tn_width ?>; height: <?php echo $tn_height ?>;" src="thumbnails/switchbox5.jpg" alt="switchbox 5" /></a></td>
- </tr>
-              <td><a href="thor.php"><img style="width: <?php echo $tn_width ?>; height: <?php echo $tn_height ?>;" src="thumbnails/thor.jpg" alt="thor" /></a></td>
- </tr>
-          </table>  <?php /* End of Unnamed main section */ ?>
-<p style="text-align: center; margin-top: 100px;"><a href="index.php"><img style="border: 0;" src="text/home.gif" /></p>
+        
+          <?php include "imageblock.php"; ?>
+          
+		  <p style="text-align: center; margin-top: 100px;">
+		  	<a href="index.php">
+		  	  <img style="border: 0;" src="text/home.gif" /></a>
+		  </p>
         </td>
         
         <!-- Text links... -->
@@ -74,7 +69,7 @@
             </tr>
             <tr>
               <td>
-                <a href="press.html">
+                <a href="press/">
                   <img src="text/press.gif" class="text" style="width: 57px; height: 18px;" alt="Press" />
                 </a>
               </td>

@@ -1,3 +1,10 @@
+<?php 
+
+$cols = 9;
+$pagenum = 1;
+
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -66,7 +73,7 @@
             </tr>
             <tr>
               <td>
-                <a href="press.html">
+                <a href="press/">
                   <img src="text/press.gif" class="text" style="width: 57px; height: 18px;" alt="Press" />
                 </a>
               </td>

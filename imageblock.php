@@ -1,7 +1,5 @@
 <?php 
 
-$cols = 9;
-$pagenum = 1;
 $tn_width = "69px";
 $tn_height = "69px";
    

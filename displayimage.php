@@ -12,33 +12,45 @@ catch(Exception $e)
 }
 
 $q_cur = "SELECT " .
-		"name, " . 
-		"title, " . 
-		"text, " . 
-		"pos " .
+		"i.page," .
+		"i.name," . 
+		"i.title," . 
+		"i.text," . 
+		"i.pos," .
+		"p.index_file," .
+		"p.index_file_link_image_file " .
 	"FROM " . 
-		"image_metadata " . 
-	"WHERE id = {$image_id}";
+		"image_metadata i " .
+	"JOIN pages p " .
+		"ON i.page = p.id " .
+	"WHERE i.id = {$image_id}";
 
 if($result = $db->query($q_cur))
 {
 	while($row = $result->fetchArray())
 	{
+		$page = $row['page'];
 		$name = $row['name'];
 		$title = $row['title'];
 		$text = $row['text'];
 		$cur_pos = $row['pos'];
+		$index_file = $row['index_file'];
+		$index_file_link_image_file = $row['index_file_link_image_file'];
 	}
 }
 else
 {
-	print "ERROR!";
+	print "ERROR! ";
+	print "SQL: {$q_cur}";
 	die($error);
 }
 
 $q_next = "SELECT id " . 
 	"FROM image_metadata " . 
-	"WHERE pos > {$cur_pos} " .
+	"WHERE " .
+		"pos > {$cur_pos} " .
+			"and " .
+		"page = {$page} " .
 	"ORDER BY pos ASC " .
 	"LIMIT 1";
 
@@ -47,6 +59,8 @@ $next_id = $db->querySingle($q_next);
 $q_prev = "SELECT id " . 
 	"FROM image_metadata " . 
 	"WHERE pos < {$cur_pos} " .
+			"and " .
+		"page = {$page} " .
 	"ORDER BY pos DESC " .
 	"LIMIT 1";
 
@@ -175,6 +189,10 @@ $image_text_width = $image_text_size_array[0];
 
       </tr>
     </table>
-    <a href="index.php"><img src="text/home.gif" alt="Home" style="width: 82px; height: 30px;" /></a>
+    <a href="<?php echo $index_file; ?>">
+    	<img 
+    		src="text/<?php echo $index_file_link_image_file; ?>" 
+    		alt="Home"  
+    	/></a>
   </body>
 </html>
