@@ -1,7 +1,5 @@
 <?php 
 
-$image_id = $_GET["id"];
-
 try
 {
 	$db = new SQLite3('GV.db');
