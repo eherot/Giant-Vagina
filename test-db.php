@@ -1,5 +1,12 @@
 <?php 
 
+if (function_exists(SQLite3))
+{
+	print "We can do SQLite3!";
+} else {
+	print "SQLite3 not supported";
+}
+
 try
 {
 	$db = new SQLite3('GV.db');
