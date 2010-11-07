@@ -34,11 +34,12 @@ if($result = mysql_query($q))
 		$title = $row['title'];
 		
 		print("<td>\n" .
-			"<a href='displayimage.php?id={$id}'>\n" .
+			"<a class='fancy_image' rel='group1' href='displayimage.php?id={$id}'>\n" .
 			"<img \n" .
 				"alt='{$title}'\n" .
 				"title='{$title}'\n" .
 		 		"style='\n" .
+					"border: 1px solid black; \n" .
 					"width: {$tn_width}; \n" .
 					"height: {$tn_height};' \n" .
 				"src='thumbnails/{$name}.{$type}'\n" .

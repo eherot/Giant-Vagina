@@ -3,35 +3,11 @@
 $cols = 9;
 $pagenum = 1;
 
+$page_title="the art of sydney hardin";
+
+include "head.php";
+ 
 ?>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html 
-	xmlns="http://www.w3.org/1999/xhtml" 
-	xml:lang="en" 
-	lang="en"
->
-
-  <head>
-
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-
-    <title>the art of sydney hardin</title>
-
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-
-    <style type="text/css">
-      img {
-        border: 1px solid black;
-      }
-      img.text {
-        border: 0px;
-      }
-    </style>
-
-  </head>
 
   <body>
 
@@ -59,7 +35,7 @@ $pagenum = 1;
           <table style="margin-left: auto; margin-right: auto;">
             <tr>
               <td>
-                <a href="personalstatement.html">
+                <a class="fancy_image" href="personalstatement.html">
                   <img 
                   	src="text/statement.gif" 
                   	class="text" 
@@ -95,7 +71,7 @@ $pagenum = 1;
             </tr>
             <tr>
               <td>
-                <a href="press/">
+                <a class="fancy_page" href="press/">
                   <img 
                   	src="text/press.gif" 
                   	class="text" 
