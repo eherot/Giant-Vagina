@@ -36,7 +36,7 @@ include "head.php";
           <table style="margin-left: auto; margin-right: auto;">
             <tr>
               <td>
-                <a href="personalstatement.html">
+                <a class="fancy_image" href="personalstatement.html">
                   <img src="text/statement.gif" class="text" style="width: 286px; height: 17px;" alt="Personal Statement" />
                 </a>
               </td>
@@ -50,7 +50,7 @@ include "head.php";
             </tr>
             <tr>
               <td>
-                <a href="press/">
+                <a class="fancy_page" href="press/">
                   <img src="text/press.gif" class="text" style="width: 57px; height: 18px;" alt="Press" />
                 </a>
               </td>
