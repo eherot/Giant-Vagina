@@ -2,14 +2,7 @@
 
 $image_id = $_GET["id"];
 
-try
-{
-	$db = new SQLite3('GV.db');
-}
-catch(Exception $e)
-{
-	die($error);
-}
+include 'db.php';
 
 $q_cur = "SELECT " .
 		"i.page," .
@@ -25,9 +18,9 @@ $q_cur = "SELECT " .
 		"ON i.page = p.id " .
 	"WHERE i.id = {$image_id}";
 
-if($result = $db->query($q_cur))
+if($result = mysql_query($q_cur))
 {
-	while($row = $result->fetchArray())
+	while($row = mysql_fetch_array($result))
 	{
 		$page = $row['page'];
 		$name = $row['name'];
@@ -42,8 +35,9 @@ else
 {
 	print "ERROR! ";
 	print "SQL: {$q_cur}";
-	die($error);
 }
+
+mysql_free_result($result);
 
 $q_next = "SELECT id " . 
 	"FROM image_metadata " . 
@@ -54,7 +48,13 @@ $q_next = "SELECT id " .
 	"ORDER BY pos ASC " .
 	"LIMIT 1";
 
-$next_id = $db->querySingle($q_next);
+$next_result = mysql_query($q_next);
+
+if (mysql_num_rows($next_result) > 0) 
+{
+	$next_id = mysql_result($next_result,0);
+}
+
 
 $q_prev = "SELECT id " . 
 	"FROM image_metadata " . 
@@ -64,7 +64,12 @@ $q_prev = "SELECT id " .
 	"ORDER BY pos DESC " .
 	"LIMIT 1";
 
-$prev_id = $db->querySingle($q_prev);
+$prev_result = mysql_query($q_prev);
+
+if (mysql_num_rows($prev_result) > 0) 
+{
+	$prev_id = mysql_result($prev_result,0);
+}
 
 $image_filename = "fullsize/" . $name . ".jpg";
 $image_size_array = GetImageSize($image_filename);
@@ -138,7 +143,7 @@ $image_text_width = $image_text_size_array[0];
     
     <?php
     
-    if($prev_id != "")
+    if( isset($prev_id) )
     {
     	
   		echo "<a href='?id=" . $prev_id . "'>";
@@ -173,7 +178,7 @@ $image_text_width = $image_text_size_array[0];
 	<td style="width: 200px; text-align: right;">
 
       <?php
-        if ( $next_id != "" ) {
+        if ( isset($next_id) ) {
       ?>
 
           <a href="?id=<?php echo $next_id; ?>">

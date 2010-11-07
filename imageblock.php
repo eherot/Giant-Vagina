@@ -2,15 +2,8 @@
 
 $tn_width = "69px";
 $tn_height = "69px";
-   
-try
-{
-	$db = new SQLite3('GV.db');
-}
-catch(Exception $e)
-{
-	die($error);
-}
+
+include 'db.php';
 
 $q = "SELECT " .
 		"id," . 
@@ -25,12 +18,12 @@ $col_cur_pos = 0;
 
 print("<table class='picture-grid'>\n");
 
-if($result = $db->query($q))
+if($result = mysql_query($q))
 {
 	
 	echo "<tr>";
 	
-	while($row = $result->fetchArray())
+	while($row = mysql_fetch_array($result))
 	{
 		
 		$col_cur_pos = $col_cur_pos + 1;

@@ -60,51 +60,75 @@ $pagenum = 1;
             <tr>
               <td>
                 <a href="personalstatement.html">
-                  <img src="text/statement.gif" class="text" style="width: 286px; height: 17px;" alt="Personal Statement" />
+                  <img 
+                  	src="text/statement.gif" 
+                  	class="text" 
+                  	style="width: 286px; height: 17px;" 
+                  	alt="Personal Statement" 
+                  />
                 </a>
               </td>
             </tr>
             <tr>
               <td>
                 <a href="cv.pdf">
-                  <img src="text/resume.gif" class="text" style="width: 69px; height: 13px;" alt="Resume" />
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href="press/">
-                  <img src="text/press.gif" class="text" style="width: 57px; height: 18px;" alt="Press" />
+                  <img 
+                  	src="text/resume.gif" 
+                  	class="text" 
+                  	style="width: 69px; height: 13px;" 
+                  	alt="Resume" 
+                  />
                 </a>
               </td>
             </tr>
             <tr>
               <td>
                 <a href="publicart.php">
-                  <img src="text/publicartcommissions.gif" class="text" style="width: 261px; height: 22px;" alt="Public Art + Commissions" />
+                  <img 
+                  	src="text/publicartcommissions.gif" 
+                  	class="text" 
+                  	style="width: 261px; height: 22px;" 
+                  	alt="Public Art + Commissions" 
+                  />
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="press/">
+                  <img 
+                  	src="text/press.gif" 
+                  	class="text" 
+                  	style="width: 57px; height: 18px;" 
+                  	alt="Press" 
+                  />
                 </a>
               </td>
             </tr>
             <tr>
               <td>
                 <a href="mailto:sydney.hardin@gmail.com">
-                  <img src="text/contact.gif" class="text" style="width: 79px; height: 15px;" alt="Contact" />
+                  <img 
+                  	src="text/contact.gif" 
+                  	class="text" 
+                  	style="width: 79px; height: 15px;" 
+                  	alt="Contact" 
+                  />
                 </a>
               </td>
             </tr>
             <tr>
               <td>
-                
-	  	<a href="http://www.facebook.com/pages/Sydney-Phillips-Hardin/28237807133">
-	     <img
-	       style="border: 0; width: 25px; height: 25px;"
-	       alt="FACEBOOK"
-	       src="facebook-icon.png"
-	     /><img
-	       style="border: 0; width: 230px; height: 22px;"
-	       alt="LIKE"
-	       src="text/like.gif"
-	     />	
+			  	<a href="http://www.facebook.com/pages/Sydney-Phillips-Hardin/28237807133">
+			     <img
+			       style="border: 0; width: 25px; height: 25px;"
+			       alt="FACEBOOK"
+			       src="facebook-icon.png"
+			     /><img
+			       style="border: 0; width: 230px; height: 22px;"
+			       alt="LIKE"
+			       src="text/like.gif"
+			     />	
                 </a>
               </td>
             </tr>
