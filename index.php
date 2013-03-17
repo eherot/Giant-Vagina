@@ -95,17 +95,19 @@ include "head.php";
             </tr>
             <tr>
               <td>
-								<a href="http://www.facebook.com/pages/Sydney-Phillips-Hardin/28237807133">
-									<img
-										style="border: 0; width: 25px; height: 25px; margin-right: 5px;"
-										alt="FACEBOOK"
-										src="facebook-icon.png"
-									/></a><a href="http://www.flickr.com/photos/pensivewombat/"><img
-										style="border: 0; width: 25px; height: 25px;"
-										alt="flickr"
-										src="flickr_icon.png"
-									/>
-								</a>
+              	<a href="javascript:window.open('http://www.etsy.com/shop/PopZooSydney/')"><img
+						style="border: 0; width: 40px; height: 40px;"
+						alt="Etsy"
+						title="PooZooSydney @ Etsy"
+						src="etsy_icon.png"
+					/></a>
+					<a href="javascript:window.open('http://www.facebook.com/pages/Sydney-Phillips-Hardin/28237807133')"><img
+						style="border: 0; width: 40px; height: 40px; margin-right: 5px;"
+						alt="Facebook"
+						title="Facebook"
+						src="facebook-icon.png"
+					/></a>
+				</a>
               </td>
             </tr>
           </table>
@@ -115,17 +117,17 @@ include "head.php";
     
     <script type="text/javascript">
 
-			var _gaq = _gaq || [];
-			_gaq.push(['_setAccount', 'UA-27352681-1']);
-			_gaq.push(['_trackPageview']);
-		
-			(function() {
-				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-			})();
-		
-		</script>
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-27352681-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	
+	</script>
     
     
   </body>

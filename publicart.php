@@ -62,6 +62,16 @@ include "head.php";
                 </a>
               </td>
             </tr>
+            <tr>
+              <td>
+              	<a href="javascript:window.open('http://www.etsy.com/shop/PopZooSydney/')"><img
+						style="border: 0; width: 40px; height: 40px;"
+						alt="Etsy"
+						title="PooZooSydney @ Etsy"
+						src="etsy_icon.png"
+					/></a>
+				</td>
+			</tr>
           </table>
         </td>
       </tr>
