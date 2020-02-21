@@ -1,0 +1,8 @@
+<?php
+
+$db_schema = 'db346955923';
+$db_user = 'dbo346955923';
+$db_pass = '@@SEE 1Password@@';
+$db_host = 'db1199.perfora.net';
+
+?>
