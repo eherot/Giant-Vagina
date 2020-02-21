@@ -18,9 +18,9 @@ $q_cur = "SELECT " .
 		"ON i.page = p.id " .
 	"WHERE i.id = {$image_id}";
 
-if($result = mysql_query($q_cur))
+if($result = $mysqli->query($q_cur))
 {
-	while($row = mysql_fetch_array($result))
+	while($row = $result->fetch_array())
 	{
 		$page = $row['page'];
 		$name = $row['name'];
@@ -37,7 +37,7 @@ else
 	print "SQL: {$q_cur}";
 }
 
-mysql_free_result($result);
+mysqli_free_result($result);
 
 $image_filename = "fullsize/" . $name . ".jpg";
 $image_size_array = GetImageSize($image_filename);

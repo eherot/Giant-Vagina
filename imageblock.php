@@ -18,12 +18,12 @@ $col_cur_pos = 0;
 
 print("<table class='picture-grid'>\n");
 
-if($result = mysql_query($q))
+if($result = $mysqli->query($q))
 {
 	
 	echo "<tr>";
 	
-	while($row = mysql_fetch_array($result))
+	while($row = $result->fetch_array())
 	{
 		
 		$col_cur_pos = $col_cur_pos + 1;

@@ -2,13 +2,11 @@
 
 include 'db_config.php';
 
-$db_link = mysql_connect(
+$mysqli = new mysqli(
 		$db_host,
 		$db_user,
-		$db_pass
+		$db_pass,
+    $db_schema
 	);
-
-@mysql_select_db($db_schema) 
-	or die ( "Unable to select database {$db_schema}" );
 
 ?>
